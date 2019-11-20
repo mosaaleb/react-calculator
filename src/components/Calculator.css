@@ -2,6 +2,7 @@
   height: 100vh;
   background-color: antiquewhite;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
 }
