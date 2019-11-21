@@ -13,8 +13,12 @@ class Display extends React.Component {
   }
 }
 
+Display.defaultProps = {
+  result: '0'
+};
+
 Display.propTypes = {
-  result: propTypes.string.isRequired
+  result: propTypes.string
 };
 
 export default Display;
