@@ -1,4 +1,4 @@
-import './Button.scss';
+import '../styles/Button.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 

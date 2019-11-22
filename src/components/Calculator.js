@@ -1,4 +1,4 @@
-import './Calculator.scss';
+import '../styles/Calculator.scss';
 import React from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
@@ -7,7 +7,7 @@ import ButtonPanel from './ButtonPanel';
 class Calculator extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div className="Calculator">
         <Display />
         <ButtonPanel />
       </div>

@@ -1,0 +1,27 @@
+@import "variables.scss";
+
+#root {
+  height: 100vh;
+  background-color: antiquewhite;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $primaryColor;
+}
+
+.Calculator {
+  box-shadow: 0 0 30px 3px #000000;
+  border-radius: .1rem;
+}
+
+// .App-header {
+//   font-size: calc(30px  +  2vmin);
+//   font-weight: bold;
+//   color: brown;
+//   cursor: pointer;
+// }
+
+// .App-header:hover {
+//   text-decoration: underline;
+// }

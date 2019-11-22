@@ -1,0 +1,21 @@
+@import "variables.scss";
+
+button {
+  border: none;
+  width: 7rem;
+  height: 5rem;
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  font-size: 2rem;
+  font-family: $font-stack;
+  outline: none;
+  &:hover {
+    box-shadow: 3px 3px 10px 2px #000000;
+    z-index: 2;
+    transition: all 400ms ease-out;
+    transform: scale(1.05);
+  }
+  &:active {
+    box-shadow: inset 6.5em 0 0 0 #8fc866;
+  }
+}
