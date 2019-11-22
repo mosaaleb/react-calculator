@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Calculator from './components/Calculator';
 import './index.css';
 
 const attachable = document.getElementById('root');
-ReactDOM.render(<App />, attachable);
+ReactDOM.render(<Calculator />, attachable);
