@@ -1,4 +1,4 @@
-import './Calculator.css';
+import './Calculator.scss';
 import React from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
