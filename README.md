@@ -14,5 +14,8 @@ yarn install
 yarn react-scripts start
 ```
 
+#### UI Design Inspiration:
+[dribble](https://dribbble.com/shots/2301209-Calculator)
+
 #### Author
 - [Muhammad](https://github.com/mosaaleb)
