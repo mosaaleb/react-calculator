@@ -1,4 +1,3 @@
-import '../styles/Calculator.scss';
 import React from 'react';
 
 
