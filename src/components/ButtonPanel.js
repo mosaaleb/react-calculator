@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import '../styles/ButtonPanel.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ButtonPanel extends React.Component {
@@ -13,7 +14,7 @@ class ButtonPanel extends React.Component {
     ];
 
     const calcButtons = buttons.map((row) => (
-      <div key={row.toString()}>
+      <div key={row.toString()} className="button-row">
         { row.map((button) => <Button value={button} key={button} />) }
       </div>
     ));

@@ -1,17 +1,5 @@
-@import "variables.scss";
-
-#root {
-  height: 100vh;
-  background-color: antiquewhite;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  background-color: $primaryColor;
-}
-
 .Calculator {
-  box-shadow: 0 0 30px 3px #000000;
+  box-shadow: 0 0 15px 3px #000000;
   border-radius: .1rem;
 }
 

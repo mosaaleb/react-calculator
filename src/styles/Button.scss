@@ -1,21 +1,22 @@
 @import "variables.scss";
 
-button {
+.key-button {
   border: none;
   width: 7rem;
   height: 5rem;
+  font-size: 1.5rem;
   background-color: $primaryColor;
   color: $secondaryColor;
-  font-size: 2rem;
-  font-family: $font-stack;
+  font-family: inherit;
   outline: none;
+  transition: color 0.5s ease-out;
   &:hover {
-    box-shadow: 3px 3px 10px 2px #000000;
+    box-shadow: 2px 2px 2px 2px #000000;
     z-index: 2;
-    transition: all 400ms ease-out;
-    transform: scale(1.05);
+    transition: all 200ms ease-out;
+    transform: scale(1.01);
   }
-  &:active {
-    box-shadow: inset 6.5em 0 0 0 #8fc866;
+  &:focus {
+    color: #333;
   }
 }

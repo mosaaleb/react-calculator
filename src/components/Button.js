@@ -1,4 +1,3 @@
-import '../styles/Button.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +5,7 @@ import PropTypes from 'prop-types';
 class Button extends React.Component {
   render() {
     const { value } = this.props;
-    return <button type="button">{value}</button>;
+    return <button type="button" className="key-button">{value}</button>;
   }
 }
 

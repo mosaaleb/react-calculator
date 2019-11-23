@@ -1,0 +1,15 @@
+@import "reset.scss";
+@import "variables.scss";
+@import "Button.scss";
+@import "Display.scss";
+@import "ButtonPanel.scss";
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $primaryColor;
+  font-family: $font-stack;
+}

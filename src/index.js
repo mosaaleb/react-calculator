@@ -1,4 +1,4 @@
-import './styles/reset.scss';
+import './styles/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Calculator from './components/Calculator';

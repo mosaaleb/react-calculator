@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+.display {
+  padding: 10px 40px;
+
+  .result-row {
+    margin: 20px 0;
+  }
+
+  .table {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .previous {
+    mask-image: -webkit-gradient(
+      linear, left bottom, left top,
+      color-stop(0.00, rgba(0, 0, 0, 1.0)),
+      color-stop(0.15, rgba(0, 0, 0, 0.8)),
+      color-stop(0.50, rgba(0, 0, 0, 0.4)),
+      color-stop(0.85, rgba(0, 0, 0, 0.2)),
+      color-stop(1.00, rgba(0, 0, 0, 0.1)));
+    font-size: 1.3rem;
+    color: $secondaryColor;
+  }
+
+  .current {
+    padding-top: .5rem;
+    font-size: 1.6rem;
+    color: $offwhite;
+
+    .current-result {
+      color: #9f7aea;
+      font-weight: bold;
+      font-size: 1.9rem;
+    }
+  }
+}
+
