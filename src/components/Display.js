@@ -6,21 +6,24 @@ import CurrentResult from './CurrentResult';
 // eslint-disable-next-line react/prefer-stateless-function
 class Display extends React.Component {
   render() {
-    const { result } = this.props;
+    const previousResults = [];
+    const { result, operation } = this.props;
     return (
       <div className="display">
-        <PreviousResults />
-        <CurrentResult result={result} />
+        <PreviousResults previousResults={previousResults} />
+        <CurrentResult result={result} operation={operation} />
       </div>
     );
   }
 }
 
 Display.defaultProps = {
-  result: '234'
+  operation: '',
+  result: '0'
 };
 
 Display.propTypes = {
+  operation: propTypes.string,
   result: propTypes.string
 };
 

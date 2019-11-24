@@ -5,10 +5,10 @@ import propTypes from 'prop-types';
 // eslint-disable-next-line react/prefer-stateless-function
 class CurrentResult extends React.Component {
   render() {
-    const { result } = this.props;
+    const { result, operation } = this.props;
     return (
       <div className="current table result-row">
-        <p className="operation">23 * 322</p>
+        <p className="operation">{operation}</p>
         <p className="result current-result">{result}</p>
       </div>
     );
@@ -17,10 +17,12 @@ class CurrentResult extends React.Component {
 
 
 CurrentResult.defaultProps = {
-  result: '234'
+  operation: '',
+  result: '0'
 };
 
 CurrentResult.propTypes = {
+  operation: propTypes.string,
   result: propTypes.string
 };
 
