@@ -1,2 +1,9 @@
 @import "variables.scss";
 
+.button-row {
+  display: flex;
+}
+
+.double-size {
+  flex-grow: 2;
+}

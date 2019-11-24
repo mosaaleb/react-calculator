@@ -1,22 +1,24 @@
 @import "variables.scss";
 
+.button-black {
+  background-color: $primaryColor;
+}
+
+.button-orange {
+  background-color: orange;
+}
+
 .key-button {
+  cursor: pointer;
   border: none;
   width: 7rem;
   height: 5rem;
   font-size: 1.5rem;
-  background-color: $primaryColor;
   color: $secondaryColor;
   font-family: inherit;
   outline: none;
-  transition: color 0.5s ease-out;
-  &:hover {
-    box-shadow: 2px 2px 2px 2px #000000;
-    z-index: 2;
-    transition: all 200ms ease-out;
-    transform: scale(1.01);
-  }
-  &:focus {
-    color: #333;
+  transition: color 0.2s ease-out;
+  &:active {
+    color: #111;
   }
 }
