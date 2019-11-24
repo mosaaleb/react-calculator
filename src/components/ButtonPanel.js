@@ -12,15 +12,15 @@ class ButtonPanel extends React.Component {
       ['0', '.', '=']
     ];
 
-    const calcButtons = buttons.map((row) => (
+    const calculatorButtons = buttons.map((row) => (
       <div key={row.toString()} className="button-row">
-        { row.map((button) => <Button value={button} key={button} />) }
+        { row.map((button) => <Button value={button} key={button} wide={button === '0' ? 1 : 0} color="black" />) }
       </div>
     ));
 
     return (
       <div>
-        {calcButtons}
+        {calculatorButtons}
       </div>
     );
   }
