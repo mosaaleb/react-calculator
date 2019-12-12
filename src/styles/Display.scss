@@ -4,7 +4,15 @@
   padding: 10px 40px;
 
   .result-row {
-    margin: 20px 0;
+    margin-top: 1.2rem;
+
+    .expression {
+      font-size: 1.3rem;
+    }
+
+    .result {
+      font-weight: bold;
+    }
   }
 
   .table {
@@ -25,14 +33,13 @@
   }
 
   .current {
-    padding-top: .5rem;
-    font-size: 1.6rem;
+    padding: .5rem 0;
+    font-size: 1.5rem;
     color: $offwhite;
 
     .current-result {
       color: #9f7aea;
-      font-weight: bold;
-      font-size: 1.9rem;
+      font-size: 1.6rem;
     }
   }
 }
