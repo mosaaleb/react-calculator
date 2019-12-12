@@ -6,7 +6,7 @@ class ButtonPanel extends React.Component {
   render() {
     const buttons = [
       ['AC', '+/-', '%', '÷'],
-      ['7', '8', '9', 'X'],
+      ['7', '8', '9', '×'],
       ['4', '5', '6', '-'],
       ['1', '2', '3', '+'],
       ['0', '.', '=']
