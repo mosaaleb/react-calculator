@@ -2,15 +2,14 @@
 
 /* eslint-disable max-classes-per-file */
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import CachedOperations from './CachedOperations';
 import CurrentOperation from './CurrentOperation';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Display extends React.Component {
   render() {
-    const cachedOperations = [];
-    const { expression, result } = this.props;
+    const { result, expression, cachedOperations } = this.props;
     return (
       <div className="display">
         <CachedOperations cachedOperations={cachedOperations} />
@@ -22,12 +21,18 @@ class Display extends React.Component {
 
 Display.defaultProps = {
   expression: '',
-  result: '0'
+  result: 0
 };
 
 Display.propTypes = {
-  expression: propTypes.string,
-  result: propTypes.string
+  cachedOperations: PropTypes.arrayOf(
+    PropTypes.shape({
+      expression: PropTypes.string,
+      result: PropTypes.number
+    })
+  ).isRequired,
+  expression: PropTypes.string,
+  result: PropTypes.number
 };
 
 export default Display;
