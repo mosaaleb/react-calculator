@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "big.js": "^5.2.2",
+    "mathjs": "^6.2.5",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
