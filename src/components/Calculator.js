@@ -9,28 +9,38 @@ class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expression: '0',
+      expression: '',
       result: '0'
     };
 
-    this.expressionChange = this.expressionChange.bind(this);
-    this.resultCalculate = this.resultCalculate.bind(this);
+    this.handleExpressionChange = this.handleExpressionChange.bind(this);
+    this.handleResultCalculate = this.handleResultCalculate.bind(this);
   }
 
-  expressionChange(expression) {
-    this.setState({ expression });
+  handleExpressionChange(value) {
+    const { expression } = this.state;
+    this.setState({
+      expression: expression + value
+    });
   }
 
-  resultCalculate() {
-    this.setState({ result: evaluate(this.expression) });
+  handleResultCalculate() {
+    const { expression } = this.state;
+    this.setState({ result: evaluate(expression.replace(/×/g, '*').replace(/÷/g, '/')) });
   }
 
   render() {
     const { expression, result } = this.state;
     return (
       <div className="Calculator">
-        <Display expression={expression} result={result} />
-        <ButtonPanel />
+        <Display
+          expression={expression}
+          result={result}
+        />
+        <ButtonPanel
+          onExpressionChange={this.handleExpressionChange}
+          onResultCalculate={this.handleResultCalculate}
+        />
       </div>
     );
   }

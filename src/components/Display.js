@@ -9,20 +9,7 @@ import CurrentOperation from './CurrentOperation';
 // eslint-disable-next-line react/prefer-stateless-function
 class Display extends React.Component {
   render() {
-    const cachedOperations = [
-      {
-        expression: '1 × 2 × 3',
-        result: '6'
-      },
-      {
-        expression: '7 + 7 × 3',
-        result: '28'
-      },
-      {
-        expression: '3 × -5 + 5',
-        result: '-10'
-      }
-    ];
+    const cachedOperations = [];
     const { expression, result } = this.props;
     return (
       <div className="display">
@@ -34,8 +21,8 @@ class Display extends React.Component {
 }
 
 Display.defaultProps = {
-  expression: '3 × 6 + 12',
-  result: '30'
+  expression: '',
+  result: '0'
 };
 
 Display.propTypes = {
@@ -44,4 +31,3 @@ Display.propTypes = {
 };
 
 export default Display;
-// ×

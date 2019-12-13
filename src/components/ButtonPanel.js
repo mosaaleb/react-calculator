@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ButtonPanel extends React.Component {
   render() {
+    const { onResultCalculate, onExpressionChange } = this.props;
     const buttons = [
       ['AC', '+/-', '%', '÷'],
       ['7', '8', '9', '×'],
@@ -14,7 +16,15 @@ class ButtonPanel extends React.Component {
 
     const calculatorButtons = buttons.map((row) => (
       <div key={row.toString()} className="button-row">
-        { row.map((button) => <Button value={button} key={button} wide={button === '0' ? 1 : 0} color="black" />) }
+        { row.map((button) => (
+          <Button
+            key={button}
+            value={button}
+            wide={button === '0' ? 1 : 0}
+            onResultCalculate={onResultCalculate}
+            onExpressionChange={onExpressionChange}
+          />
+        ))}
       </div>
     ));
 
@@ -25,5 +35,10 @@ class ButtonPanel extends React.Component {
     );
   }
 }
+
+ButtonPanel.propTypes = {
+  onResultCalculate: PropTypes.func.isRequired,
+  onExpressionChange: PropTypes.func.isRequired
+};
 
 export default ButtonPanel;
