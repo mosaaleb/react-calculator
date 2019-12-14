@@ -6,10 +6,6 @@ class Button extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handleRemoveChar = this.handleRemoveChar.bind(this);
-    this.handleClearScreen = this.handleClearScreen.bind(this);
-    this.handleResultCalculate = this.handleResultCalculate.bind(this);
-    this.handleExpressionChange = this.handleExpressionChange.bind(this);
   }
 
   handleRemoveChar() {

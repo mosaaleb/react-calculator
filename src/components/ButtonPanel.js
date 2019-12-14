@@ -5,7 +5,9 @@ import Button from './Button';
 // eslint-disable-next-line react/prefer-stateless-function
 class ButtonPanel extends React.Component {
   render() {
-    const { onRemoveChar, onClearScreen, onResultCalculate, onExpressionChange } = this.props;
+    const {
+      onRemoveChar, onClearScreen, onResultCalculate, onExpressionChange
+    } = this.props;
     const buttons = [
       ['AC', '←', '%', '÷'],
       ['7', '8', '9', '×'],

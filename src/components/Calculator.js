@@ -1,5 +1,3 @@
-// TODO: cached operations acts like queue with max 3 elements
-
 import '../styles/Calculator.scss';
 import { evaluate } from 'mathjs';
 import React from 'react';
@@ -24,6 +22,11 @@ class Calculator extends React.Component {
 
   updateCachedOperations() {
     const { result, expression, cachedOperations } = this.state;
+    if (cachedOperations.length > 2) {
+      this.setState({
+        cachedOperations: cachedOperations.shift()
+      });
+    }
     this.setState({
       cachedOperations: cachedOperations.concat({ expression, result })
     });
