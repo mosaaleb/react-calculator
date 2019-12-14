@@ -1,3 +1,5 @@
+// TODO: cached operations acts like queue with max 3 elements
+
 import '../styles/Calculator.scss';
 import { evaluate } from 'mathjs';
 import React from 'react';
@@ -14,11 +16,13 @@ class Calculator extends React.Component {
       cachedOperations: []
     };
 
-    this.handleExpressionChange = this.handleExpressionChange.bind(this);
+    this.handleRemoveChar = this.handleRemoveChar.bind(this);
+    this.handleClearScreen = this.handleClearScreen.bind(this);
     this.handleResultCalculate = this.handleResultCalculate.bind(this);
+    this.handleExpressionChange = this.handleExpressionChange.bind(this);
   }
 
-  appendToCachedOperations() {
+  updateCachedOperations() {
     const { result, expression, cachedOperations } = this.state;
     this.setState({
       cachedOperations: cachedOperations.concat({ expression, result })
@@ -32,18 +36,28 @@ class Calculator extends React.Component {
     });
   }
 
-  handleExpressionChange(value) {
+  handleRemoveChar() {
     const { expression } = this.state;
     this.setState({
-      expression: expression + value
+      expression: expression.slice(0, -1)
     });
+  }
+
+  handleClearScreen() {
+    this.updateCachedOperations();
+    this.clearCurrentOperation();
   }
 
   handleResultCalculate() {
     const { expression } = this.state;
     this.setState({ result: evaluate(expression.replace(/×/g, '*').replace(/÷/g, '/')) });
-    this.appendToCachedOperations();
-    this.clearCurrentOperation();
+  }
+
+  handleExpressionChange(value) {
+    const { expression } = this.state;
+    this.setState({
+      expression: expression + value
+    });
   }
 
   render() {
@@ -56,8 +70,10 @@ class Calculator extends React.Component {
           result={result}
         />
         <ButtonPanel
-          onExpressionChange={this.handleExpressionChange}
+          onRemoveChar={this.handleRemoveChar}
+          onClearScreen={this.handleClearScreen}
           onResultCalculate={this.handleResultCalculate}
+          onExpressionChange={this.handleExpressionChange}
         />
       </div>
     );

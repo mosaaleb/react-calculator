@@ -6,8 +6,20 @@ class Button extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleRemoveChar = this.handleRemoveChar.bind(this);
+    this.handleClearScreen = this.handleClearScreen.bind(this);
     this.handleResultCalculate = this.handleResultCalculate.bind(this);
     this.handleExpressionChange = this.handleExpressionChange.bind(this);
+  }
+
+  handleRemoveChar() {
+    const { onRemoveChar } = this.props;
+    onRemoveChar();
+  }
+
+  handleClearScreen() {
+    const { onClearScreen } = this.props;
+    onClearScreen();
   }
 
   handleResultCalculate() {
@@ -23,6 +35,10 @@ class Button extends React.Component {
   handleClick(e) {
     if (e.target.value === '=') {
       this.handleResultCalculate();
+    } else if (e.target.value === 'AC') {
+      this.handleClearScreen();
+    } else if (e.target.value === '←') {
+      this.handleRemoveChar();
     } else {
       this.handleExpressionChange(e.target.value);
     }
@@ -43,6 +59,8 @@ class Button extends React.Component {
 Button.propTypes = {
   wide: PropTypes.number.isRequired,
   value: PropTypes.string.isRequired,
+  onRemoveChar: PropTypes.func.isRequired,
+  onClearScreen: PropTypes.func.isRequired,
   onResultCalculate: PropTypes.func.isRequired,
   onExpressionChange: PropTypes.func.isRequired
 };

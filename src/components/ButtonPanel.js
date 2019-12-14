@@ -5,9 +5,9 @@ import Button from './Button';
 // eslint-disable-next-line react/prefer-stateless-function
 class ButtonPanel extends React.Component {
   render() {
-    const { onResultCalculate, onExpressionChange } = this.props;
+    const { onRemoveChar, onClearScreen, onResultCalculate, onExpressionChange } = this.props;
     const buttons = [
-      ['AC', '+/-', '%', '÷'],
+      ['AC', '←', '%', '÷'],
       ['7', '8', '9', '×'],
       ['4', '5', '6', '-'],
       ['1', '2', '3', '+'],
@@ -21,6 +21,8 @@ class ButtonPanel extends React.Component {
             key={button}
             value={button}
             wide={button === '0' ? 1 : 0}
+            onRemoveChar={onRemoveChar}
+            onClearScreen={onClearScreen}
             onResultCalculate={onResultCalculate}
             onExpressionChange={onExpressionChange}
           />
@@ -37,6 +39,8 @@ class ButtonPanel extends React.Component {
 }
 
 ButtonPanel.propTypes = {
+  onRemoveChar: PropTypes.func.isRequired,
+  onClearScreen: PropTypes.func.isRequired,
   onResultCalculate: PropTypes.func.isRequired,
   onExpressionChange: PropTypes.func.isRequired
 };
