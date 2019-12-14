@@ -1,5 +1,3 @@
-// TODO: cached operations acts like queue with max 3 elements
-
 /* eslint-disable max-classes-per-file */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -19,20 +17,15 @@ class Display extends React.Component {
   }
 }
 
-Display.defaultProps = {
-  expression: '',
-  result: 0
-};
-
 Display.propTypes = {
+  result: PropTypes.number.isRequired,
+  expression: PropTypes.string.isRequired,
   cachedOperations: PropTypes.arrayOf(
     PropTypes.shape({
-      expression: PropTypes.string,
-      result: PropTypes.number
+      result: PropTypes.number,
+      expression: PropTypes.string
     })
-  ).isRequired,
-  expression: PropTypes.string,
-  result: PropTypes.number
+  ).isRequired
 };
 
 export default Display;

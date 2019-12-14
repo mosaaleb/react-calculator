@@ -26,8 +26,8 @@ class CachedOperations extends React.Component {
 CachedOperations.propTypes = {
   cachedOperations: PropTypes.arrayOf(
     PropTypes.shape({
-      expression: PropTypes.string,
-      result: PropTypes.number
+      result: PropTypes.number,
+      expression: PropTypes.string
     })
   ).isRequired
 };

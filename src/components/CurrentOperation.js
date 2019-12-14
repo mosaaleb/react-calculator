@@ -18,8 +18,8 @@ class CurrentOperation extends React.Component {
 }
 
 CurrentOperation.propTypes = {
-  expression: propTypes.string.isRequired,
-  result: propTypes.number.isRequired
+  result: propTypes.number.isRequired,
+  expression: propTypes.string.isRequired
 };
 
 export default CurrentOperation;
