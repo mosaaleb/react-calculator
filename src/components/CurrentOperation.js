@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -18,8 +18,8 @@ class CurrentOperation extends React.Component {
 }
 
 CurrentOperation.propTypes = {
-  result: propTypes.number.isRequired,
-  expression: propTypes.string.isRequired
+  result: PropTypes.number.isRequired,
+  expression: PropTypes.string.isRequired
 };
 
 export default CurrentOperation;

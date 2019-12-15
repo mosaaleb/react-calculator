@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CachedOperations from './CachedOperations';

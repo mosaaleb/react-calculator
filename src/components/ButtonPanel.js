@@ -8,6 +8,7 @@ class ButtonPanel extends React.Component {
     const {
       onRemoveChar, onClearScreen, onResultCalculate, onExpressionChange
     } = this.props;
+
     const buttons = [
       ['AC', '←', '%', '÷'],
       ['7', '8', '9', '×'],

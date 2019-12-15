@@ -3,15 +3,16 @@ import { evaluate } from 'mathjs';
 import React from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
+import Message from './Message';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       result: 0,
       expression: '',
-      cachedOperations: []
+      cachedOperations: [],
+      message: ''
     };
 
     this.handleRemoveChar = this.handleRemoveChar.bind(this);
@@ -53,7 +54,12 @@ class Calculator extends React.Component {
 
   handleResultCalculate() {
     const { expression } = this.state;
-    this.setState({ result: evaluate(expression.replace(/×/g, '*').replace(/÷/g, '/')) });
+    try {
+      this.setState({ result: evaluate(expression.replace(/×/g, '*').replace(/÷/g, '/')) });
+      this.setState({ message: '' });
+    } catch (error) {
+      this.setState({ message: 'Invalid opertion' });
+    }
   }
 
   handleExpressionChange(value) {
@@ -64,21 +70,26 @@ class Calculator extends React.Component {
   }
 
   render() {
-    const { result, expression, cachedOperations } = this.state;
+    const {
+      result, expression, cachedOperations, message
+    } = this.state;
     return (
-      <div className="Calculator">
-        <Display
-          cachedOperations={cachedOperations}
-          expression={expression}
-          result={result}
-        />
-        <ButtonPanel
-          onRemoveChar={this.handleRemoveChar}
-          onClearScreen={this.handleClearScreen}
-          onResultCalculate={this.handleResultCalculate}
-          onExpressionChange={this.handleExpressionChange}
-        />
-      </div>
+      <>
+        <Message message={message} show={message !== ''} />
+        <div className="Calculator">
+          <Display
+            cachedOperations={cachedOperations}
+            expression={expression}
+            result={result}
+          />
+          <ButtonPanel
+            onRemoveChar={this.handleRemoveChar}
+            onClearScreen={this.handleClearScreen}
+            onResultCalculate={this.handleResultCalculate}
+            onExpressionChange={this.handleExpressionChange}
+          />
+        </div>
+      </>
     );
   }
 }
