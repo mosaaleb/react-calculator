@@ -48,8 +48,11 @@ class Calculator extends React.Component {
   }
 
   handleClearScreen() {
-    this.updateCachedOperations();
-    this.clearCurrentOperation();
+    const { message } = this.state;
+    if (message === '') {
+      this.updateCachedOperations();
+      this.clearCurrentOperation();
+    }
   }
 
   handleResultCalculate() {
