@@ -17,7 +17,13 @@ const Parser = (() => {
     return splitted.filter((item) => item);
   };
 
+  const resetParser = () => {
+    outPutQueue = '';
+    stack.splice(0, stack.length);
+  };
+
   const infixToPostfix = (infix) => {
+    resetParser();
     const infixArray = cleanInfix(infix);
     infixArray.forEach((token) => {
       if (isNumeric(token)) {
@@ -34,7 +40,7 @@ const Parser = (() => {
     while (stack.length > 0) {
       outPutQueue += `${stack.pop()} `;
     }
-    return outPutQueue;
+    return outPutQueue.trim();
   };
 
   return { infixToPostfix };
