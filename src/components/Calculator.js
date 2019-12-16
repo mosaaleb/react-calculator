@@ -1,6 +1,6 @@
 import '../styles/Calculator.scss';
-import { evaluate } from 'mathjs';
 import React from 'react';
+import Expression from '../logic/Expression';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 import Message from './Message';
@@ -58,10 +58,10 @@ class Calculator extends React.Component {
   handleResultCalculate() {
     const { expression } = this.state;
     try {
-      this.setState({ result: evaluate(expression.replace(/×/g, '*').replace(/÷/g, '/')) });
+      this.setState({ result: Expression.evaluate(expression) });
       this.setState({ message: '' });
     } catch (error) {
-      this.setState({ message: 'Invalid opertion' });
+      this.setState({ message: error.message });
     }
   }
 

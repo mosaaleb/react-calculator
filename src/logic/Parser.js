@@ -1,4 +1,5 @@
 const Parser = (() => {
+  const validInfixRegex = new RegExp('[0-9]+ ?( ?[*/+-] ?[0-9]+)*');
   let outPutQueue = '';
   const stack = [];
   const precedence = {
@@ -22,9 +23,17 @@ const Parser = (() => {
     stack.splice(0, stack.length);
   };
 
+  const validateInfix = (infix) => {
+    validInfixRegex.test(infix);
+  };
+
   const infixToPostfix = (infix) => {
-    resetParser();
+    if (!validateInfix(infix)) {
+      throw new Error('Invalid Operation');
+    }
     const infixArray = cleanInfix(infix);
+
+    resetParser();
     infixArray.forEach((token) => {
       if (isNumeric(token)) {
         outPutQueue += `${token} `;
