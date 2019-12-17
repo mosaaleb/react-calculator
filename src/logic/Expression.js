@@ -18,7 +18,9 @@ const Expression = (() => {
     }
   };
 
+
   const evaluate = (infix) => {
+    result.splice(0, result.length);
     const postfix = Parser.infixToPostfix(infix);
     const postfixArray = postfix.split(' ');
     postfixArray.forEach((token) => {
@@ -30,7 +32,7 @@ const Expression = (() => {
         result.push(calculate(b, a, token));
       }
     });
-    return result.length > 1 ? 'invalid operation' : result.pop();
+    return result.pop();
   };
 
   return { evaluate };
