@@ -1,5 +1,5 @@
 const Parser = (() => {
-  const validInfixRegex = /^\d+(\s*[+×÷-]\s*\d+)*$/g;
+  const validInfixRegex = /^\d+(\s*[+-×÷]\s*\d+)*$/;
 
   let outPutQueue = '';
   const stack = [];
@@ -26,12 +26,10 @@ const Parser = (() => {
 
   const validateInfix = (infix) => validInfixRegex.test(infix);
 
-  // infix.match(validateInfix);
-
   const infixToPostfix = (infix) => {
     resetParser();
     const infixArray = cleanInfix(infix);
-    if (validateInfix(infix) === false) {
+    if (!validateInfix(infix)) {
       throw new Error('Invalid Operation');
     }
 
