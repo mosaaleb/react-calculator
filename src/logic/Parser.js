@@ -1,5 +1,5 @@
 const Parser = (() => {
-  const validInfixRegex = /^\d+(\s*[+-×÷]\s*\d+)*$/;
+  const INFIXREGEXP = /^-?\d+(\s*[+\-×÷]\s*-?\d+)*$/;
 
   let outPutQueue = '';
   const stack = [];
@@ -13,9 +13,15 @@ const Parser = (() => {
   // eslint-disable-next-line no-restricted-globals
   const isNumeric = (token) => !isNaN(parseFloat(token)) && isFinite(token);
 
-  const cleanInfix = (infix) => {
+  const tokenizeInfix = (infix) => {
     const withoutSpaces = infix.replace(/\s/g, '');
-    const splitted = withoutSpaces.split(/([+\-×÷])/);
+    const splitted = withoutSpaces.split(/(\b[+\-×÷])/);
+    // splitted.forEach((item, index, object) => {
+    //   if (item === '') {
+    //     const trueValue = `${object[index + 1]}${object[index + 2]}`;
+    //     object.splice(index, 3, trueValue);
+    //   }
+    // });
     return splitted.filter((item) => item);
   };
 
@@ -24,11 +30,11 @@ const Parser = (() => {
     stack.splice(0, stack.length);
   };
 
-  const validateInfix = (infix) => validInfixRegex.test(infix);
+  const validateInfix = (infix) => INFIXREGEXP.test(infix);
 
   const infixToPostfix = (infix) => {
     resetParser();
-    const infixArray = cleanInfix(infix);
+    const infixArray = tokenizeInfix(infix);
     if (!validateInfix(infix)) {
       throw new Error('Invalid Operation');
     }

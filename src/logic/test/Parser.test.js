@@ -51,6 +51,11 @@ describe('unary operator -', () => {
     const infix = '3 × 5 - 9 × -4';
     expect(Parser.infixToPostfix(infix)).toBe('3 5 × 9 -4 × -');
   });
+
+  test('generate postfix notation from infix with mutiple - unary', () => {
+    const infix = '3 × -5 - -9 × -4';
+    expect(Parser.infixToPostfix(infix)).toBe('3 -5 × -9 -4 × -');
+  });
 });
 
 describe('invalid expressions', () => {
