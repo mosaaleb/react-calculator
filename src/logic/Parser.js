@@ -1,9 +1,10 @@
 const Parser = (() => {
-  const INFIXREGEXP = /^-?\d+(\s*[+\-×÷]\s*-?\d+)*$/;
+  const INFIXREGEXP = /^-?(([0-9]*[.])?[0-9]+)(\s*[+\-×÷%]\s*-?(([0-9]*[.])?[0-9]+))*$/;
 
   let outPutQueue = '';
   const stack = [];
   const precedence = {
+    '%': 3,
     '÷': 3,
     '×': 3,
     '+': 2,
@@ -15,13 +16,7 @@ const Parser = (() => {
 
   const tokenizeInfix = (infix) => {
     const withoutSpaces = infix.replace(/\s/g, '');
-    const splitted = withoutSpaces.split(/(\b[+\-×÷])/);
-    // splitted.forEach((item, index, object) => {
-    //   if (item === '') {
-    //     const trueValue = `${object[index + 1]}${object[index + 2]}`;
-    //     object.splice(index, 3, trueValue);
-    //   }
-    // });
+    const splitted = withoutSpaces.split(/(\b[+\-×÷%])/);
     return splitted.filter((item) => item);
   };
 
@@ -44,7 +39,7 @@ const Parser = (() => {
         outPutQueue += `${token} `;
       } else {
         let last = stack[stack.length - 1];
-        while ('+-×÷'.indexOf(last) !== -1 && (precedence[token] <= precedence[last])) {
+        while ('+-×÷%'.indexOf(last) !== -1 && (precedence[token] <= precedence[last])) {
           outPutQueue += `${stack.pop()} `;
           last = stack[stack.length - 1];
         }

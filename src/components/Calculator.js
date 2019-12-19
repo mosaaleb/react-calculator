@@ -67,7 +67,7 @@ class Calculator extends React.Component {
 
   handleExpressionChange(value) {
     const { expression } = this.state;
-    const clickedValue = (/\d$/.test(value) || /(\s[+\-×÷]\s)$/.test(expression)) ? value : ` ${value} `;
+    const clickedValue = (/[\d.]$/.test(value) || /(\s[+\-×÷]\s)$/.test(expression)) ? value : ` ${value} `;
     this.setState({
       expression: expression + clickedValue
     });
