@@ -66,10 +66,10 @@ class Calculator extends React.Component {
   }
 
   handleExpressionChange(value) {
-    const last = (/^\d$/.test(value)) ? value : ` ${value} `;
     const { expression } = this.state;
+    const clickedValue = (/\d$/.test(value) || /(\s[+\-×÷]\s)$/.test(expression)) ? value : ` ${value} `;
     this.setState({
-      expression: expression + last
+      expression: expression + clickedValue
     });
   }
 
