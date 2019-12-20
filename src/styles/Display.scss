@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+.display {
+  padding: 10px 40px;
+
+  .result-row {
+    margin-top: 1.2rem;
+
+    .expression {
+      font-size: 1.3rem;
+    }
+
+    .result {
+      font-weight: bold;
+    }
+  }
+
+  .table {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .previous {
+    mask-image: -webkit-gradient(
+      linear, left bottom, left top,
+      color-stop(0.00, rgba(0, 0, 0, 1.0)),
+      color-stop(0.15, rgba(0, 0, 0, 0.8)),
+      color-stop(0.50, rgba(0, 0, 0, 0.4)),
+      color-stop(0.85, rgba(0, 0, 0, 0.2)),
+      color-stop(1.00, rgba(0, 0, 0, 0.1)));
+    font-size: 1.3rem;
+    color: $secondaryColor;
+  }
+
+  .current {
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: $offwhite;
+
+    .current-result {
+      color: #9f7aea;
+      font-size: 1.6rem;
+    }
+  }
+}
+
