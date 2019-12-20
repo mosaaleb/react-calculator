@@ -1,24 +1,30 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import CachedOperations from './CachedOperations';
+import CurrentOperation from './CurrentOperation';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Display extends React.Component {
   render() {
-    const { result } = this.props;
+    const { result, expression, cachedOperations } = this.props;
     return (
-      <div>
-        {result}
+      <div className="display">
+        <CachedOperations cachedOperations={cachedOperations} />
+        <CurrentOperation result={result} expression={expression} />
       </div>
     );
   }
 }
 
-Display.defaultProps = {
-  result: '0'
-};
-
 Display.propTypes = {
-  result: propTypes.string
+  result: PropTypes.number.isRequired,
+  expression: PropTypes.string.isRequired,
+  cachedOperations: PropTypes.arrayOf(
+    PropTypes.shape({
+      result: PropTypes.number,
+      expression: PropTypes.string
+    })
+  ).isRequired
 };
 
 export default Display;
