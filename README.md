@@ -1,6 +1,9 @@
 ## React Calculator
 > A React powered calculator application.
 
+![Screenshot](public/calc-screenshot.png)
+
+
 #### Live Version
 [Live](https://react-ulator.herokuapp.com/)
 
