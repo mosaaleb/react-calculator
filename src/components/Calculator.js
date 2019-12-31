@@ -1,18 +1,18 @@
 import '../styles/Calculator.scss';
 import React from 'react';
-import Expression from '../logic/Expression';
 import Display from './Display';
-import ButtonPanel from './ButtonPanel';
 import Message from './Message';
+import ButtonPanel from './ButtonPanel';
+import Expression from '../logic/Expression';
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       result: 0,
+      message: '',
       expression: '',
-      cachedOperations: [],
-      message: ''
+      cachedOperations: []
     };
 
     this.handleRemoveChar = this.handleRemoveChar.bind(this);
@@ -43,7 +43,7 @@ class Calculator extends React.Component {
   handleRemoveChar() {
     const { expression } = this.state;
     this.setState({
-      expression: expression.slice(0, -1)
+      expression: expression.slice(0, -1).trim()
     });
   }
 
@@ -82,9 +82,9 @@ class Calculator extends React.Component {
         <Message message={message} show={message !== ''} />
         <div className="Calculator">
           <Display
-            cachedOperations={cachedOperations}
-            expression={expression}
             result={result}
+            expression={expression}
+            cachedOperations={cachedOperations}
           />
           <ButtonPanel
             onRemoveChar={this.handleRemoveChar}
